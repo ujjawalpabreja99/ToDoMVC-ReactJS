@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Footer from "./Footer/index";
-import InputTask from "./InputTask/index";
-import ToDoList from "./ToDoList/TodoList";
+import TodoInput from "./TodoInput/TodoInput";
+import TodoList from "./TodoList/TodoList";
+import Footer from "./Footer/Footer";
 
 const initialTodos = JSON.parse(localStorage.getItem("todos")) || [];
 
@@ -78,10 +78,15 @@ export default function ToDoApp() {
     localStorage.setItem("todos", JSON.stringify(updatedTodos));
   };
 
-  const markAllCompleted = checked => {
+  const toggleCompleted = checked => {
     const updatedTodos = todos.map(todo => ({
       ...todo,
-      status: checked ? "Completed" : "Active"
+      status:
+        todo.status !== "Archived"
+          ? checked === true
+            ? "Completed"
+            : "Active"
+          : "Archived"
     }));
     setTodos(updatedTodos);
     localStorage.setItem("todos", JSON.stringify(updatedTodos));
@@ -102,12 +107,12 @@ export default function ToDoApp() {
 
   return (
     <div id="ToDoMVC">
-      <InputTask
+      <TodoInput
         addTodo={addTodo}
-        markAllCompleted={markAllCompleted}
+        toggleCompleted={toggleCompleted}
         todosCount={getCount()}
       />
-      <ToDoList
+      <TodoList
         todos={filterTodos()}
         deleteTodo={deleteTodo}
         editTodo={editTodo}

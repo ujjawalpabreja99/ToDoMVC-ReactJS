@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class ActiveTasksCount extends React.Component {
+export default class ActiveTodosCount extends React.Component {
   render() {
     return (
       <label id="activeCount">

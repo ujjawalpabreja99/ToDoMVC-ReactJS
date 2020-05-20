@@ -1,13 +1,13 @@
 import React from "react";
-import FilterButton from "./FilterButton";
-import ActiveTasksCount from "./ActiveTasksCount";
-import ClearCompletedButton from "./ClearCompletedButton";
+import FilterButton from "./Components/FilterButton";
+import ActiveTodosCount from "./Components/ActiveTodosCount";
+import ClearCompleted from "./Components/ClearCompleted";
 
 export default class Footer extends React.Component {
   render() {
     return (
       <li id="buttonsLI">
-        <ActiveTasksCount activeCount={this.props.todosCount.activeCount} />
+        <ActiveTodosCount activeCount={this.props.todosCount.activeCount} />
         <div>
           <FilterButton
             id="All"
@@ -31,7 +31,7 @@ export default class Footer extends React.Component {
           />
         </div>
         {this.props.todosCount.completedCount > 0 && (
-          <ClearCompletedButton
+          <ClearCompleted
             id="ClearCompleted"
             textContent="Clear completed"
             clearCompleted={this.props.clearCompleted}

@@ -6,7 +6,7 @@ export default class DeleteButton extends React.Component {
     return (
       <button
         className="deleteButton"
-        onClick={() => this.props.onClick(todo.id)}
+        onClick={() => this.props.deleteTodo(todo.id)}
       >
         <IoIosClose className="delete" />
       </button>

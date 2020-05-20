@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Checkbox extends React.Component {
+export default class CompleteCheckbox extends React.Component {
   render() {
     const todo = this.props.todo;
     return (
@@ -9,7 +9,7 @@ export default class Checkbox extends React.Component {
           <input
             type="checkbox"
             className="checkbox"
-            onChange={() => this.props.onChange(todo.id)}
+            onChange={() => this.props.toggleTodo(todo.id)}
             checked={todo.status === "Completed"}
           />
           <span class="checkbox-custom circular" />

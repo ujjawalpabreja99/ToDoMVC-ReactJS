@@ -232,20 +232,25 @@ li:hover .archiveCheckbox:hover{
   color: rgba(0,0,0);
   transition: 0s;
 }
+.editTodoDescription{
+  height: 63px;
+  padding:0;
+  padding-left:42px;
+}
 li textarea {
   outline: none;
   display: inline-block;
-  padding: 0.5rem;
+  padding: 1.1rem;
   cursor:auto;
   max-width: 600px;
-  line-height: 1em;
+  line-height: 1.2;
   width: 600px;
   min-width: 300px;
   font: 100 1.5rem "Helvetica Neue";
-  border: 2px solid transparent;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 li textarea:focus {
-  box-shadow: 0 0 3pt 2pt rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 3pt 2pt rgba(0, 0, 0, 0.2);
 }
 #archiveCheckbox {
   margin: 0;

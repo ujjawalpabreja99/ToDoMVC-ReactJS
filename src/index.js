@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Header from "./Header/index";
-import ToDoApp from "./ToDoApp/index";
+import Header from "./Header/Header";
+import TodoApp from "./TodoApp/TodoApp";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <React.StrictMode>
     <Header />
-    <ToDoApp />
+    <TodoApp />
   </React.StrictMode>,
   rootElement
 );
