@@ -134,8 +134,8 @@ form {
   max-width: 556px;
   min-width: 556px;
   font-size: 24px;
-  font-family: inherit;
-  font-weight: inherit;
+  font-family: "Helvetica Neue";
+  font-weight: 100;
   line-height: 1.4em;
   color: inherit;
   box-sizing: border-box;
@@ -237,20 +237,16 @@ li textarea {
   display: inline-block;
   padding: 0.5rem;
   cursor:auto;
-  max-width: 420px;
+  max-width: 600px;
   line-height: 1em;
-  width: 440px;
+  width: 600px;
   min-width: 300px;
-  font: 100 25px "Helvetica";
-
-  /* font-size:26px; */
-  /* font-family: "Helvetica"; */
-  border-radius: 4px;
+  font: 100 1.5rem "Helvetica Neue";
   border: 2px solid transparent;
 }
-/* li textarea:focus {
+li textarea:focus {
   box-shadow: 0 0 3pt 2pt rgba(0, 0, 0, 0.2);
-} */
+}
 #archiveCheckbox {
   margin: 0;
   margin-left: 15px;

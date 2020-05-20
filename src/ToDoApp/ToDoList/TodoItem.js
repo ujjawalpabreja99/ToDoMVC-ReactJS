@@ -48,8 +48,6 @@ export default class TodoItem extends React.Component {
             }
             placeholder=""
           />
-          <ArchiveCheckbox todo={todo} onChange={this.props.archiveTodo} />
-          <DeleteButton todo={todo} onClick={this.props.deleteTodo} />
         </li>
       );
     }
