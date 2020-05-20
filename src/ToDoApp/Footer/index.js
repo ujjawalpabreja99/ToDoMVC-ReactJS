@@ -7,7 +7,7 @@ export default class Footer extends React.Component {
   render() {
     return (
       <li id="buttonsLI">
-        <ActiveTasksCount activeCount={this.props.activeCount} />
+        <ActiveTasksCount activeCount={this.props.todosCount.activeCount} />
         <div>
           <FilterButton
             id="All"
@@ -30,10 +30,10 @@ export default class Footer extends React.Component {
             switchFilter={this.props.switchFilter}
           />
         </div>
-        {this.props.completedCount > 0 && (
+        {this.props.todosCount.completedCount > 0 && (
           <ClearCompletedButton
             id="ClearCompleted"
-            textContent="Clear Completed"
+            textContent="Clear completed"
             clearCompleted={this.props.clearCompleted}
           />
         )}

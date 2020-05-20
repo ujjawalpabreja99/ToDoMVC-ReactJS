@@ -57,20 +57,19 @@ export default function ToDoApp() {
     setTodos(updatedTodos);
     localStorage.setItem("todos", JSON.stringify(updatedTodos));
   };
+
   const switchFilter = filter => {
     setFilter(filter);
   };
 
-  const getActiveCount = () => {
-    let activeCount = 0;
-    todos.forEach(todo => (activeCount += todo.status === "Active"));
-    return activeCount;
-  };
-
-  const getCompletedCount = () => {
-    let completedCount = 0;
-    todos.forEach(todo => (completedCount += todo.status === "Completed"));
-    return completedCount;
+  const getCount = () => {
+    let activeCount = 0,
+      completedCount = 0;
+    todos.forEach(todo => {
+      activeCount += todo.status === "Active";
+      completedCount += todo.status === "Completed";
+    });
+    return { activeCount: activeCount, completedCount: completedCount };
   };
 
   const clearCompleted = () => {
@@ -78,10 +77,18 @@ export default function ToDoApp() {
     setTodos(updatedTodos);
     localStorage.setItem("todos", JSON.stringify(updatedTodos));
   };
+
+  const markAllCompleted = checked => {
+    const updatedTodos = todos.map(todo => ({
+      ...todo,
+      status: checked ? "Completed" : "Active"
+    }));
+    setTodos(updatedTodos);
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+  };
+
   const filterTodos = () => {
     switch (filter) {
-      case "All":
-        return todos.filter(todo => todo.status !== "Archived");
       case "Active":
         return todos.filter(todo => todo.status === "Active");
       case "Completed":
@@ -89,13 +96,17 @@ export default function ToDoApp() {
       case "Archived":
         return todos.filter(todo => todo.status === "Archived");
       default:
-        throw new Error("Unknown filter: " + filter);
+        return todos.filter(todo => todo.status !== "Archived");
     }
   };
 
   return (
     <div id="ToDoMVC">
-      <InputTask addTodo={addTodo} />
+      <InputTask
+        addTodo={addTodo}
+        markAllCompleted={markAllCompleted}
+        todosCount={getCount()}
+      />
       <ToDoList
         todos={filterTodos()}
         deleteTodo={deleteTodo}
@@ -105,8 +116,7 @@ export default function ToDoApp() {
       />
       <Footer
         switchFilter={switchFilter}
-        activeCount={getActiveCount()}
-        completedCount={getCompletedCount()}
+        todosCount={getCount()}
         clearCompleted={clearCompleted}
       />
     </div>
